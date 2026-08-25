@@ -6,22 +6,22 @@ from torchvision import models, transforms
 from PIL import Image
 import numpy as np
 
-# 1. Konstanten festlegen (exakt wie in deinem Training)
+
 class_names = ['Cataract', 'Conjunctivitis', 'Eyelid', 'Normal', 'Uveitis']
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# 2. Bild-Transformationen definieren
+
 data_transforms = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor(),
     transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
 ])
 
-# 3. Modellstruktur aufbauen und trainierte Gewichte laden
+
 model = models.resnet18()
 model.fc = nn.Linear(model.fc.in_features, len(class_names))
 
-# Lädt die .pth Datei, die im selben Ordner liegen muss
+
 model_path = 'resnet18_augen_modell.pth'
 if os.path.exists(model_path):
     model.load_state_dict(torch.load(model_path, map_location=device))
@@ -32,7 +32,7 @@ else:
 model.to(device)
 model.eval()
 
-# 4. Verbesserte Vorhersage-Funktion
+
 def predict_eye_image(inp_img):
     if inp_img is None:
         return "Bitte lade ein Bild hoch."
@@ -58,7 +58,7 @@ def predict_eye_image(inp_img):
     except Exception as e:
         return f"Fehler bei der Bildverarbeitung: {str(e)}"
 
-# 5. Gradio UI erstellen
+
 demo = gr.Interface(
     fn=predict_eye_image,
     inputs=gr.Image(),
