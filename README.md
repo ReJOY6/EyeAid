@@ -1,33 +1,42 @@
-# EyeAid - Augenkrankheiten Klassifizierung mit ResNet18
+EyeAid - Eye Disease Classification with ResNet18
 
-Dieses Projekt nutzt ein in PyTorch trainiertes ResNet18-Modell, um Augenaufnahmen in 5 Kategorien zu klassifizieren: Cataract, Conjunctivitis, Eyelid-Erkrankungen, Uveitis oder Normal.
+svg
 
-## Projektstruktur vorbereiten
+This project uses a ResNet18 model trained with PyTorch to classify eye images into 5 categories: Cataract, Conjunctivitis, Eyelid Diseases, Uveitis, or Normal.
 
-Damit das Programm läuft, musst du deine aus Google Colab heruntergeladene Datei `resnet18_augen_modell.pth` in denselben Ordner wie die `app.py` legen.
+Prepare the Project Structure
 
-```text
+svg
+
+To run the program, place the resnet18_augen_modell.pth file downloaded from Google Colab in the same folder as app.py.
+
 EyeAid-App/
   ├── app.py
   ├── requirements.txt
   ├── README.md
-  └── resnet18_augen_modell.pth  <-- DEINE HERUNTERGELADENE DATEI HIER PLATZIEREN
-```
+  └── resnet18_augen_modell.pth  <-- PLACE YOUR DOWNLOADED FILE HERE
 
-## Installation & Start (Lokal)
+svg
 
-1. Klonen Sie dieses Repository oder laden Sie es als ZIP herunter.
-2. Stellen Sie sicher, dass Sie Python installiert haben.
-3. Öffnen Sie Ihr Terminal/Eingabeaufforderung im Projektordner und installieren Sie die Abhängigkeiten:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Starten Sie die Anwendung:
-   ```bash
-   python app.py
-   ```
-5. Öffnen Sie den im Terminal angezeigten Link (z.B. `http://127.0.0.1:7860`) in Ihrem Webbrowser.
+Installation & Run Locally
 
-## Medizinischer Haftungsausschluss
-This is for informational purposes only. For medical advice or diagnosis, consult a professional. AI responses may include mistakes.
-Dieses Modell wurde zu Bildungszwecken trainiert und bietet **keine medizinische Diagnostik**. Bei echten Beschwerden suchen Sie bitte immer einen Augenarzt auf.
+svg
+
+Clone this repository or download it as a ZIP file.
+Make sure Python is installed on your system.
+Open a terminal or command prompt in the project directory and install the dependencies:
+pip install -r requirements.txt
+
+svg
+
+Start the application:
+python app.py
+
+svg
+
+Open the link displayed in the terminal, for example http://127.0.0.1:7860, in your web browser.
+Medical Disclaimer
+
+svg
+
+This project is for informational and educational purposes only. It does not provide medical diagnosis or professional medical advice. AI-generated results may contain errors. If you have any actual symptoms or concerns, always consult a qualified ophthalmologist.
