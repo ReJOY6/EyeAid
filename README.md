@@ -1,42 +1,81 @@
-EyeAid - Eye Disease Classification with ResNet18
+# EyeAid — Eye Disease Classification with ResNet18
 
-svg
+EyeAid is a PyTorch-based image classification project that uses a fine-tuned **ResNet18** model to classify eye images into five categories:
 
-This project uses a ResNet18 model trained with PyTorch to classify eye images into 5 categories: Cataract, Conjunctivitis, Eyelid Diseases, Uveitis, or Normal.
+* Cataract
+* Conjunctivitis
+* Eyelid Disease
+* Uveitis
+* Normal
 
-Prepare the Project Structure
+The project was built as an educational computer vision application and provides a simple interface for testing the trained model on eye images.
 
-svg
+## Project Structure
 
-To run the program, place the resnet18_augen_modell.pth file downloaded from Google Colab in the same folder as app.py.
+Make sure the trained model file `resnet18_augen_modell.pth` is located in the same directory as `app.py`.
 
-EyeAid-App/
-  ├── app.py
-  ├── requirements.txt
-  ├── README.md
-  └── resnet18_augen_modell.pth  <-- PLACE YOUR DOWNLOADED FILE HERE
+```text
+EyeAid/
+├── app.py
+├── requirements.txt
+├── README.md
+└── resnet18_augen_modell.pth
+```
 
-svg
+## Installation
 
-Installation & Run Locally
+### 1. Clone the Repository
 
-svg
+```bash
+git clone https://github.com/ReJOY6/EyeAid.git
+cd EyeAid
+```
 
-Clone this repository or download it as a ZIP file.
-Make sure Python is installed on your system.
-Open a terminal or command prompt in the project directory and install the dependencies:
+Alternatively, you can download the repository as a ZIP file and extract it.
+
+### 2. Install the Dependencies
+
+Make sure Python is installed, then run:
+
+```bash
 pip install -r requirements.txt
+```
 
-svg
+### 3. Run the Application
 
-Start the application:
+Start the application with:
+
+```bash
 python app.py
+```
 
-svg
+The terminal will display a local address such as:
 
-Open the link displayed in the terminal, for example http://127.0.0.1:7860, in your web browser.
-Medical Disclaimer
+```text
+http://127.0.0.1:7860
+```
 
-svg
+Open this address in your browser to use EyeAid.
 
-This project is for informational and educational purposes only. It does not provide medical diagnosis or professional medical advice. AI-generated results may contain errors. If you have any actual symptoms or concerns, always consult a qualified ophthalmologist.
+## Usage
+
+1. Start the application.
+2. Upload an eye image.
+3. The model processes the image and predicts one of the five supported categories.
+4. The result is displayed in the application.
+
+## Model
+
+The classifier is based on **ResNet18** and was trained using **PyTorch**.
+
+The trained weights are stored in:
+
+```text
+resnet18_augen_modell.pth
+```
+
+## Medical Disclaimer
+
+EyeAid was developed for **educational and experimental purposes only**.
+
+It is not a medical device and must not be used as a substitute for professional diagnosis or treatment. Model predictions can be inaccurate. If you have symptoms or concerns about your eye health, consult a qualified medical professional or ophthalmologist.
