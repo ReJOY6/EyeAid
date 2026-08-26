@@ -23,12 +23,16 @@ model.fc = nn.Linear(model.fc.in_features, len(class_names))
 
 
 model_path = 'resnet18_augen_modell.pth'
+
 if os.path.exists(model_path):
-    model.load_state_dict(torch.load(model_path, map_location=device))
+    model.load_state_dict(
+        torch.load(model_path, map_location=device)
+    )
     print("Modell erfolgreich geladen!")
 else:
-    print(f"HINWEIS: '{model_path}' wurde nicht gefunden. Bitte platziere deine heruntergeladene Modelldatei in diesen Ordner.")
-
+    raise FileNotFoundError(
+        f"'{model_path}' wurde nicht gefunden."
+    )
 model.to(device)
 model.eval()
 
@@ -51,8 +55,9 @@ def predict_eye_image(inp_img):
         with torch.no_grad():
             ausgabe = model(transformiertes_bild)
             wahrscheinlichkeiten = torch.nn.functional.softmax(ausgabe, dim=1)
-        
-        ergebnisse = {class_names[i]: float(wahrscheinlichkeiten[i]) for i in range(len(class_names))}
+        ergebnisse = {
+        class_names[i]: wahrscheinlichkeiten[0, i].item()
+        for i in range(len(class_names))}
         return ergebnisse
 
     except Exception as e:
